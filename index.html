@@ -13,3 +13,19 @@
     </script>
   </body>
 </html>
+
+
+function main() {
+  var groupKeys = [function(event) {
+    return (new Date(event.time)).toISOString().split('T')[0];
+  }];
+  return Events({
+    from_date: "2016-03-14",
+    to_date: "2016-03-14",
+    event_selectors: [{event: "API Action"}]
+  })
+    .groupByUser(groupKeys, function() {
+      return 1;
+    })
+    .reduce(mixpanel.reducer.count());
+}
