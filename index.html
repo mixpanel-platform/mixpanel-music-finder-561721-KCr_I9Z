@@ -14,7 +14,7 @@
   </body>
 </html>
 
-
+<script>
 function main() {
   var groupKeys = [function(event) {
     return (new Date(event.time)).toISOString().split('T')[0];
@@ -29,3 +29,5 @@ function main() {
     })
     .reduce(mixpanel.reducer.count());
 }
+
+</script>
